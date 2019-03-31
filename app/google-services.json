@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "985601786286",
+    "firebase_url": "https://mapapp-91a9f.firebaseio.com",
+    "project_id": "mapapp-91a9f",
+    "storage_bucket": "mapapp-91a9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985601786286:android:1a100a0fc73d39c4",
+        "android_client_info": {
+          "package_name": "secretworld.helmetfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985601786286-ol4qep9l7bolmrlq9lhhvudnj036qng4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6TiGO3gQugMGgueRxrcwzyBy8XU_CCsg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985601786286:android:2656a5017996cbac",
+        "android_client_info": {
+          "package_name": "secretworld.mapapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985601786286-9uitckbhh9h5m4af15c9mukplj0v5m2g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "secretworld.mapapp",
+            "certificate_hash": "40aee8a8219d068b371883230b70c568974ed205"
+          }
+        },
+        {
+          "client_id": "985601786286-ol4qep9l7bolmrlq9lhhvudnj036qng4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6TiGO3gQugMGgueRxrcwzyBy8XU_CCsg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985601786286-ol4qep9l7bolmrlq9lhhvudnj036qng4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
