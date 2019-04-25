@@ -1,8 +1,13 @@
 package secretworld.helmetfinder;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.telecom.Call;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +15,8 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference DatabaseEmergencyNumber;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         emergencyNumberButton = (Button)findViewById(R.id.emergency_number_button);
         emergencyNumberEditText = (EditText) findViewById(R.id.emergency_number_input);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
+
+
         DatabaseEmergencyNumber = mFirebaseDatabase.getReference().child("DatabaseEmergencyNumber");
         emergencyNumberButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,5 +58,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
     }
+
 }

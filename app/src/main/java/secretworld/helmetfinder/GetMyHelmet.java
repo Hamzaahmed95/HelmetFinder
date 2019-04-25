@@ -1,6 +1,7 @@
 package secretworld.helmetfinder;
 
 
+import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -19,6 +20,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -69,6 +71,7 @@ public class GetMyHelmet extends FragmentActivity implements OnMapReadyCallback 
     private Polyline currentPolyline;
     MarkerOptions place1,place2;
     EditText Source;
+    ImageView backButton;
     Query mHouseDatabaseReference23;
     private FirebaseDatabase mFirebaseDatabase;
 
@@ -82,6 +85,14 @@ public class GetMyHelmet extends FragmentActivity implements OnMapReadyCallback 
         setContentView(R.layout.helmet_activity);
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mHouseDatabaseReference23=mFirebaseDatabase.getReference().child("LatLng");
+        backButton = (ImageView)findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(GetMyHelmet.this, MapsActivity.class));
+                finish();
+            }
+        });
 
        /* placeAutoComplete = (PlaceAutocompleteFragment) getFragmentManager().findFragmentById(R.id.place_autocomplete);
         placeAutoComplete.setOnPlaceSelectedListener(new PlaceSelectionListener() {
@@ -129,7 +140,11 @@ public class GetMyHelmet extends FragmentActivity implements OnMapReadyCallback 
         mMap.animateCamera(CameraUpdateFactory.zoomTo(13));
 
     }
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(GetMyHelmet.this, MapsActivity.class));
+        finish();
+    }
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -145,16 +160,15 @@ public class GetMyHelmet extends FragmentActivity implements OnMapReadyCallback 
                         value=issue.getValue().toString();
                     }
 
-                    String array[]=value.split(",");
-                    System.out.println("Lat "+array[0]);
-                    System.out.println("Lng "+array[1]);
-                    lat = Double.parseDouble(array[0].toString());
-                    lng = Double.parseDouble(array[1].toString());
-                    System.out.println("Lat long "+lat+","+lng);
-                    place1= new MarkerOptions().position(new LatLng(lat,lng)).title("Gulshan");
+                        System.out.println("HamzaAhmed Lat: "+value.substring(0,6)+" Long: "+value.substring(9,value.length()-1));
+                    lat =Double.parseDouble(value.substring(0,7));
+                    lng =Double.parseDouble(value.substring(9,value.length()-1));
+
+                    place1= new MarkerOptions().position(new LatLng(lat,lng)).title("Here is your helmet");
                     mMap.addMarker(place1);
                     LatLng karachi = new LatLng(lat, lng);
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(karachi,18.0f));
+
                 }
             }
 
